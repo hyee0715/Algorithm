@@ -1,34 +1,29 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
-int main()
-{
+int main() {
+	int arr[100];
+
 	int n, m;
 	cin >> n >> m;
 
-	vector<int> vec(n);
-
-	for (int i = 0; i < vec.size(); i++) {
-		cin >> vec[i];
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
 	}
 
-	int minRemainder = 500000;
-	int maxSum = -1;
-
-	for (int i = 0; i < vec.size(); i++) {
-		for (int j = i + 1; j < vec.size(); j++) {
-			for (int k = j + 1; k < vec.size(); k++) {
-				if ((vec[i] + vec[j] + vec[k]) <= m) {
-					if ((m - (vec[i] + vec[j] + vec[k])) <= minRemainder) {
-						minRemainder = m - (vec[i] + vec[j] + vec[k]);
-						maxSum = vec[i] + vec[j] + vec[k];
-					}
+	int max = -1;
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			for (int k = j + 1; k < n; k++) {
+				if (arr[i] + arr[j] + arr[k] > max && arr[i] + arr[j] + arr[k] <= m) {
+					max = arr[i] + arr[j] + arr[k];
 				}
 			}
 		}
 	}
 
-	cout << maxSum;
+	cout << max;
+
 	return 0;
 }
