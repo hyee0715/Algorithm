@@ -1,26 +1,32 @@
 #include <iostream>
 #include <algorithm>
+
+#define endl "\n"
+#define MAX 90
 using namespace std;
 
-long long cache[90];
-
-long long fib(int n) {
-	if (n == 0) return 0;
-	if (n == 1) return 1;
-
-	if (cache[n] != 0)
-		return cache[n];
-
-	return cache[n] = fib(n - 1) + fib(n - 2);
-}
+long long dp[MAX];
+int n;
+long long  result = 0;
 
 int main() {
-	int n;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	cin >> n;
+	fill(dp, dp + MAX, 0);
 
-	fill(cache, cache + 90, 0);
+	dp[0] = 0;
+	dp[1] = 1;
 
-	cout << fib(n);
+	for (int i = 2; i <= n; i++) {
+		dp[i] = dp[i - 1] + dp[i - 2];
+	}
+
+	result = dp[n];
+
+	cout << result;
 
 	return 0;
 }
