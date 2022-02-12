@@ -52,7 +52,7 @@ void findMinSquare(char map[8][8]) {
 					if (map[i][j] == 'W') {
 						map[i][j] = 'B';
 						changeCnt++;
-						}
+					}
 				}
 			}
 			else { // 행이 홀수번째인 경우
