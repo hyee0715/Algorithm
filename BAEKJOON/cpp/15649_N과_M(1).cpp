@@ -1,31 +1,51 @@
 #include <iostream>
+#include <vector>
+
+#define MAX 8
 using namespace std;
 
-void dfs(int k, int n, int m, int arr[], bool visited[]) {
-	if (k == m) {
-		for (int i = 0; i < m; i++) {
-			cout << arr[i] << " ";
+int arr[MAX];
+bool visit[MAX];
+vector<int> v;
+int n, m;
+
+void input() {
+	cin >> n >> m;
+}
+
+void dfs(int cnt) {
+	if (cnt == m) {
+		for (int i = 0; i < v.size(); i++) {
+			cout << v[i] << " ";
 		}
 		cout << "\n";
 	}
-	else {
-		for (int i = 1; i <= n; i++) {
-			if (!visited[i]) {
-				visited[i] = true;
-				arr[k] = i;
-				dfs(k + 1, n, m, arr, visited);
-				visited[i] = false;
-			}
-		}
+
+	for (int i = 0; i < n; i++) {
+		if (visit[i] == true) continue;
+		visit[i] = true;
+		v.push_back(arr[i]);
+		dfs(cnt + 1);
+		v.pop_back();
+		visit[i] = false;
 	}
 }
 
+void solution() {
+	for (int i = 0; i < n; i++) {
+		arr[i] = i + 1;
+	}
+
+	dfs(0);
+}
+
 int main() {
-	int n, m;
-	int arr[9] = { 0, };
-	bool visited[9] = { 0, };
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-	cin >> n >> m;
+	input();
+	solution();
 
-	dfs(0, n, m, arr, visited);
+	return 0;
 }
