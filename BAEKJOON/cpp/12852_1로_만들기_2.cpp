@@ -4,7 +4,7 @@
 
 #define MAX 1000001
 using namespace std;
-//백준15852
+
 int n;
 int dp[MAX];
 int answer1;
@@ -37,7 +37,6 @@ void solution() {
 		if (n == 1) {
 			break;
 		}
-		//배열 이용해서 해보기
 
 		int result1 = MAX, result2 = MAX, result3 = MAX;
 		result1 = dp[n - 1] + 1;
