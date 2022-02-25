@@ -52,7 +52,7 @@ void bfs(int a, int b, char c) {
 	}
 }
 
-void changeGintoA() {
+void changeGintoR() {
 	// G를 R로 변경
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
@@ -89,7 +89,7 @@ void solution() {
 	// 적록색약인 사람
 	memset(visit, false, sizeof(visit));
 
-	changeGintoA();
+	changeGintoR();
 
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
