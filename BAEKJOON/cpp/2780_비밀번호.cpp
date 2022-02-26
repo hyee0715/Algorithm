@@ -6,9 +6,10 @@
 using namespace std;
 
 int n;
-int dp[MAX][10]; // dp[a][b] = c -> 비밀번호의 길이가 a이고, 비밀번호의 마지막 숫자가 b일때, 가능한 비밀번호의 개수는 c이다.
+int dp[MAX][10]; 
 vector<int> answer;
 
+// dp[a][b] = c -> 비밀번호의 길이가 a이고, 비밀번호의 마지막 숫자가 b일때, 가능한 비밀번호의 개수는 c이다.
 void solution() {
 	for (int i = 0; i <= 9; i++) {
 		dp[1][i] = 1;
