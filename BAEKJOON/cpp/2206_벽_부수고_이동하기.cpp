@@ -29,8 +29,9 @@ void input() {
 void bfs(int a, int b, int c, int d) { // (x ÁÂÇ¥, y ÁÂÇ¥, º® ¾ÈºÎ¼û(0)/º® ºÎ¼û(1), ÀÌµ¿ÇÑ °Å¸®)
 	queue<pair<pair<int, int>, pair<int, int> > > q;
 	q.push(make_pair(make_pair(a, b), make_pair(c, d)));
-	visit[a][b][0] = true;
-	visit[a][b][1] = true;
+    	visit[a][b][c] = true;
+//	visit[a][b][0] = true;
+//	visit[a][b][1] = true;
 
 	while (!q.empty()) {
 		int x = q.front().first.first;
