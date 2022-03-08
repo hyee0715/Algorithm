@@ -38,7 +38,7 @@ bool isDuplicate() { // 중복이 있으면 true 리턴, 중복이 없으면 false 리턴
 	}
 }
 
-void dfs(int idx, int cnt) { // 순열
+void dfs(int idx, int cnt) { // 조합
 	if (cnt == m) {
 		if (!isDuplicate()) {
 			for (int i = 0; i < v.size(); i++) {
