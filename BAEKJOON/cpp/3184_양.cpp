@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <string>
 #include <cstring>
 
@@ -8,10 +8,10 @@ using namespace std;
 int r, c, sheep, wolf;
 char map[MAX][MAX];
 bool visit[MAX][MAX];
-pair<int, int> answer = { 0, 0 }; // ¾ç, ´Á´ë ¼ö
+pair<int, int> answer = { 0, 0 }; // ì–‘, ëŠ‘ëŒ€ ìˆ˜
 
 int dx[] = { 0, 0, 1, -1 };
-int dy[] = {-1, 1, 0, 0 };
+int dy[] = { -1, 1, 0, 0 };
 
 void input() {
 	cin >> r >> c;
