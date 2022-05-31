@@ -8,7 +8,6 @@ using namespace std;
 
 int n, answer_cnt = 1;
 int map[MAX][MAX], dist[MAX][MAX];
-bool visit[MAX][MAX];
 
 int dx[] = { 0, 0, 1, -1 };
 int dy[] = { 1, -1, 0, 0 };
@@ -57,7 +56,6 @@ void solution() {
 		}
 	}
 
-	memset(visit, false, sizeof(visit));
 	dijkstra(0, 0);
 
 	cout << "Problem " << answer_cnt++ << ": " << dist[n - 1][n - 1] << "\n";
