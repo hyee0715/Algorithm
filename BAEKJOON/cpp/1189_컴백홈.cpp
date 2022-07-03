@@ -32,7 +32,6 @@ void dfs(int x, int y, int cnt) {
 		return;
 	}
 
-
 	for (int i = 0; i < 4; i++) {
 		int nx = x + dx[i];
 		int ny = y + dy[i];
