@@ -9,7 +9,7 @@ using namespace std;
 
 int n, m, k, cnt = 1;
 vector<vector<int> > map;
-bool visit[MAX][MAX][11][2]; //visit[a][b][c][d] : c == 벽을 부수는 횟수, d == 낮(0), 밤(0)
+bool visit[MAX][MAX][11][2]; //visit[a][b][c][d] : c == 벽을 부수는 횟수, d == 낮(0), 밤(1)
 
 int dx[] = { 0, 0, 0, 1, -1 };
 int dy[] = { 0, 1, -1, 0, 0 };
