@@ -29,5 +29,5 @@ public:
 		check(root, 1, answer);
 
 		return answer;
-	}
+	} 
 };
