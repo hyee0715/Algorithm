@@ -1,26 +1,23 @@
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
-    public String kthDistinct(String[] arr, int k) {
-        String answer = "";
-        HashMap<String, Integer> hm = new HashMap<>();
-        int cnt = 0;
+    public boolean areNumbersAscending(String s) {
+        String[] str = s.split(" ");
+        List<Integer> nums = new ArrayList<>();
 
-        for (int i = 0; i < arr.length; i++) {
-            hm.put(arr[i], hm.getOrDefault(arr[i], 0) + 1);
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            if (hm.get(arr[i]) == 1) {
-                cnt++;
-            }
-
-            if (cnt == k) {
-                answer = arr[i];
-                break;
+        for (int i = 0; i < str.length; i++) {
+            if (str[i].charAt(0) >= '0' && str[i].charAt(0) <= '9') {
+                nums.add(Integer.parseInt(str[i]));
             }
         }
 
-        return answer;
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (nums.get(i) >= nums.get(i + 1)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
