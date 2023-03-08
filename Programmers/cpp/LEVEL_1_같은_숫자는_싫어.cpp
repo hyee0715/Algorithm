@@ -8,8 +8,9 @@ vector<int> solution(vector<int> arr)
 	vector<int> answer;
 
 	for (int i = 0; i < arr.size(); i++) {
-		if (arr[i] != arr[i + 1])
+		if (answer.empty() || answer[answer.size() - 1] != arr[i]) {
 			answer.push_back(arr[i]);
+		}
 	}
 
 	return answer;

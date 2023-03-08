@@ -1,26 +1,21 @@
 #include <vector>
-#include <algorithm>
+#include <unordered_map>
 using namespace std;
 
 int solution(vector<int> nums)
 {
 	int answer = 0;
-	vector<int> vec;
-	int phonekemon = nums.size() / 2;
+	unordered_map<int, int> um;
 
-	sort(nums.begin(), nums.end());
-	vec.push_back(nums[0]);
-	for (int i = 1; i < nums.size(); i++) {
-		if (nums[i] != nums[i - 1]) {
-			vec.push_back(nums[i]);
-		}
+	for (int i = 0; i < nums.size(); i++) {
+		um[nums[i]]++;
 	}
 
-	if (vec.size() >= phonekemon) {
-		answer = phonekemon;
+	if (um.size() >= nums.size() / 2) {
+		answer = nums.size() / 2;
 	}
 	else {
-		answer = vec.size();
+		answer = um.size();
 	}
 
 	return answer;
