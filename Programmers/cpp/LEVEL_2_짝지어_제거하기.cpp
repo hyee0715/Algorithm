@@ -6,14 +6,17 @@ using namespace std;
 int solution(string s)
 {
 	int answer = -1;
+
 	stack<char> st;
-
-	for (int i = 0; i < s.size(); i++) {
-		if (st.empty() || st.top() != s[i])
+	for (int i = 0; i < s.length(); i++) {
+		if (st.empty() || st.top() != s[i]) {
 			st.push(s[i]);
-		else if (st.top() == s[i])
-			st.pop();
+			continue;
+		}
 
+		if (st.top() == s[i]) {
+			st.pop();
+		}
 	}
 
 	if (st.empty()) {
