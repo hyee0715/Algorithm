@@ -12,38 +12,12 @@ class Solution {
                 break;
             }
 
-            if (0 < mid && nums[mid - 1] > nums[mid]) {
-                if (nums[0] <= target && target <= nums[mid - 1]) {
-                    right = mid - 1;
-                    continue;
-                }
-
-                if (nums[mid] <= target && target <= nums[nums.length - 1]) {
-                    left = mid + 1;
-                    continue;
-                }
-            }
-
-            if (mid < nums.length - 1 && nums[mid] > nums[mid + 1]) {
-                if (nums[0] <= target && target<= nums[mid]) {
-                    right = mid - 1;
-                    continue;
-                }
-
-                if (nums[mid + 1] <= target && target <= nums[nums.length - 1]) {
-                    left = mid + 1;
-                    continue;
-                }
-            }
-
             if (nums[left] <= nums[mid]) {
                 if (nums[left] <= target && target <= nums[mid]) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
-
-                continue;
             }
 
             if (nums[mid] <= nums[right]) {
