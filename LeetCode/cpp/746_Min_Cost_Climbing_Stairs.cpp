@@ -1,6 +1,10 @@
 ﻿class Solution {
 public:
 	int minCostClimbingStairs(vector<int>& cost) {
+		if (cost.size() < 2) {
+			return cost[0];
+		}
+
 		vector<int> dp(cost.size(), 0);
 		int answer = -1;
 

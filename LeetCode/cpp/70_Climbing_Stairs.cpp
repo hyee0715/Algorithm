@@ -1,13 +1,11 @@
 ﻿class Solution {
 public:
 	int climbStairs(int n) {
-		if (n == 1)
-			return 1;
-		else if (n == 2)
-			return 2;
+		if (n <= 2) {
+			return n;
+		}
 
 		vector<int> dp(n + 1);
-
 		dp[1] = 1;
 		dp[2] = 2;
 
