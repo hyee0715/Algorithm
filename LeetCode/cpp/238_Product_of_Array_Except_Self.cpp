@@ -1,32 +1,38 @@
 ﻿class Solution {
 public:
-	vector<int> pivotArray(vector<int>& nums, int pivot) {
-		vector<int> answer;
+	vector<int> productExceptSelf(vector<int>& nums) {
+		vector<int> answer(nums.size());
 
-		vector<int> sm, sa, lg;
+		vector<int> left(nums.size()), right(nums.size());
 
-		for (int num : nums) {
-			if (num == pivot) {
-				sa.push_back(num);
+		left[0] = nums[0];
+
+		for (int i = 1; i < nums.size(); i++) {
+			left[i] = left[i - 1] * nums[i];
+		}
+
+		right[nums.size() - 1] = nums[nums.size() - 1];
+
+		for (int i = nums.size() - 2; i >= 0; i--) {
+			right[i] = right[i + 1] * nums[i];
+		}
+
+		for (int i = 0; i < answer.size(); i++) {
+			int leftNum = 1;
+			int rightNum = 1;
+
+			if (i == 0) {
+				rightNum = right[i + 1];
 			}
-			else if (num < pivot) {
-				sm.push_back(num);
+			else if (i == answer.size() - 1) {
+				leftNum = left[i - 1];
 			}
 			else {
-				lg.push_back(num);
+				rightNum = right[i + 1];
+				leftNum = left[i - 1];
 			}
-		}
 
-		for (int n : sm) {
-			answer.push_back(n);
-		}
-
-		for (int n : sa) {
-			answer.push_back(n);
-		}
-
-		for (int n : lg) {
-			answer.push_back(n);
+			answer[i] = leftNum * rightNum;
 		}
 
 		return answer;
