@@ -1,4 +1,4 @@
-#include <string>
+ï»¿#include <string>
 #include <vector>
 #include <queue>
 
@@ -93,7 +93,7 @@ int solution(int m, int n, vector<string> board) {
 	int answer = 0;
 
 	vector<vector<char>> map = settingMap(board);
-	queue<pair<int, int>> q; //¾ø¾Ö¾ß ÇÒ ºí·Ï x, y ÁÂÇ¥
+	queue<pair<int, int>> q; //ì—†ì• ì•¼ í•  ë¸”ë¡ x, y ì¢Œí‘œ
 
 	findSameFourBlocks(map, q);
 
