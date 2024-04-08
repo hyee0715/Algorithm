@@ -20,7 +20,6 @@ map<int, Turret> turretMap; //포탑 맵
 Turret attacker; //공격자
 Turret target; //공격 대상자
 
-vector<Turret> laserPath; //레이저 공격 관련 배열
 vector<vector<bool> > laserVisit;
 vector<Turret> laserShortestPath; //레이저 공격 최단 경로 배열
 
@@ -185,14 +184,6 @@ Turret selectTarget() {
 	return turrets[0];
 }
 
-void copyLaserShortestPath() {
-	laserShortestPath.clear();
-
-	for (int i = 0; i < laserPath.size(); i++) {
-		laserShortestPath.push_back(laserPath[i]);
-	}
-}
-
 void copyLaserShortestPath(vector<Turret>& v) {
 	laserShortestPath.clear();
 
@@ -323,7 +314,6 @@ void updateAttackTime(int num, int x, int y, int attackTime) {
 
 void doAttack(int attackTime) {
 	//레이저 공격 후 안되면 포탄 공격
-	laserPath.clear();
 	laserShortestPath.clear();
 	laserVisit.assign(turretBoard.size(), vector<bool>(turretBoard[0].size(), false));
 
